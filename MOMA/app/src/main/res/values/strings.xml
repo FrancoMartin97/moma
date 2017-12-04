@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MOMA</string>
+    <string name="facebook_app_id">342088622922193</string>
+    <string name="fb_login_protocol_scheme">fb342088622922193</string>
+</resources>

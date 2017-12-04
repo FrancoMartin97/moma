@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "203560657957",
+    "firebase_url": "https://moma-8eda8.firebaseio.com",
+    "project_id": "moma-8eda8",
+    "storage_bucket": "moma-8eda8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203560657957:android:22f4abdffca47abc",
+        "android_client_info": {
+          "package_name": "com.example.franco.moma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "203560657957-a7jsgq4gij8kd0isua56bc59c9m1tgut.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.franco.moma",
+            "certificate_hash": "0340df540aa69fd7c48f5e5b6ec109d03b247a57"
+          }
+        },
+        {
+          "client_id": "203560657957-j3cog3g27gqsm6kak6i4bmd9qfgh55i8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTGsIMyjlNDWXsneKUzp7oL5xpSO99Zes"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "203560657957-j3cog3g27gqsm6kak6i4bmd9qfgh55i8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
