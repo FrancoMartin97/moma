@@ -29,19 +29,42 @@ public class DetallePinturaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detalle_pintura);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        Pintura pintura = (Pintura) bundle.getSerializable("Pintura");
+        final Pintura pintura = (Pintura) bundle.getSerializable("Pintura");
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        readDatabase();
-        encontrarArtista(pintura);
-        ImageView imageView = (ImageView) findViewById(R.id.fotoDetalle);
-        TextView textView = (TextView) findViewById(R.id.textoDetalle);
-        textView.setText(artistaSeleccionado.getArtistId());
+        DatabaseReference referencia = mDatabase.child("artists");
+
+        referencia.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                for (DataSnapshot personaSnapshot: dataSnapshot.getChildren()) {
+
+                    Artista persona = personaSnapshot.getValue(Artista.class);
+                    personaList.add(persona);
+
+                }
+                encontrarArtista(pintura);
+                ImageView imageView = (ImageView) findViewById(R.id.fotoDetalle);
+                TextView textView = (TextView) findViewById(R.id.textoDetalle);
+                textView.setText(artistaSeleccionado.getArtistId());
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
 
     }
 
     public void readDatabase(){
 
-        DatabaseReference referencia = mDatabase.child("artist");
+        DatabaseReference referencia = mDatabase.child("artists");
 
         referencia.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
