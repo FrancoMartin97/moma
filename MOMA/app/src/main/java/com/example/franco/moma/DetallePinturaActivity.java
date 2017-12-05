@@ -47,7 +47,7 @@ public class DetallePinturaActivity extends AppCompatActivity {
                 encontrarArtista(pintura);
                 ImageView imageView = (ImageView) findViewById(R.id.fotoDetalle);
                 TextView textView = (TextView) findViewById(R.id.textoDetalle);
-                textView.setText(artistaSeleccionado.getArtistId());
+                textView.setText("Artista: " + artistaSeleccionado.getName() + " Influenciado por:" + artistaSeleccionado.getInfluenced_by() +" Nacionalidad: " + artistaSeleccionado.getNationality());
 
             }
 
