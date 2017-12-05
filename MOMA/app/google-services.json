@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "203560657957-nbgtq88ds0h86fr5mdvd7k1tjhbrcfo2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.franco.moma",
+            "certificate_hash": "0beb04c7c0581feeba35d212486f2e016728765c"
+          }
+        },
+        {
           "client_id": "203560657957-a7jsgq4gij8kd0isua56bc59c9m1tgut.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

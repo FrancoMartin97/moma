@@ -1,9 +1,15 @@
 package com.example.franco.moma;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Toast;
+
+import com.facebook.login.LoginManager;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements AdapterRecycle.No
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getIntent();
 
         obtenerPinturas();
 
@@ -37,8 +45,14 @@ public class MainActivity extends AppCompatActivity implements AdapterRecycle.No
 
     @Override
     public void notificarClick(Pintura pinturaClickeada) {
-
+        Intent intent = new Intent(this,DetallePinturaActivity.class);
+        Bundle bundle=new Bundle();
+        bundle.putSerializable("Pintura",pinturaClickeada);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
+
+
 
     public void obtenerPinturas(){
         ControllerPinturas controlerPinturas = new ControllerPinturas();
@@ -48,5 +62,11 @@ public class MainActivity extends AppCompatActivity implements AdapterRecycle.No
             adapter.cargarNuevaLista(resultado);
             }
         });
+    }
+
+    public void logOut(View view){
+        FirebaseAuth.getInstance().signOut();
+        LoginManager.getInstance().logOut();
+        startActivity(new Intent(this,Logeo.class));
     }
 }

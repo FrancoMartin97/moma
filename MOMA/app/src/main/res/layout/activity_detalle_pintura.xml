@@ -5,18 +5,15 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="com.example.franco.moma.MainActivity">
+    tools:context="com.example.franco.moma.DetallePinturaActivity">
 
-    <Button
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="logOut"
-        android:text="Log out"/>
-    <android.support.v7.widget.RecyclerView
+        android:layout_height="300dp"
+        android:id="@+id/fotoDetalle"/>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recycle"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp"></android.support.v7.widget.RecyclerView>
-
+        android:id="@+id/textoDetalle"/>
 </LinearLayout>

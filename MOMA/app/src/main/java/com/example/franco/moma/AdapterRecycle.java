@@ -1,12 +1,15 @@
 package com.example.franco.moma;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -37,6 +40,7 @@ public class AdapterRecycle extends RecyclerView.Adapter {
         private ImageView foto;
         private TextView nombre;
 
+
         public ProductoHolder(View itemView) {
             super(itemView);
             celda = itemView;
@@ -46,6 +50,7 @@ public class AdapterRecycle extends RecyclerView.Adapter {
 
         public void bindProducto (Pintura pintura){
             nombre.setText(pintura.getName());
+            Picasso.with(contexto).load(Uri.parse(pintura.getImage())).into(foto);
         }
     }
 
