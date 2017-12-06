@@ -1,4 +1,4 @@
-package com.example.franco.moma;
+package com.example.franco.moma.Model;
 
 import com.google.gson.annotations.SerializedName;
 

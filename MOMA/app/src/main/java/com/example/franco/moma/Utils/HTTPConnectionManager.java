@@ -1,4 +1,6 @@
-package com.example.franco.moma;
+package com.example.franco.moma.Utils;
+
+import com.example.franco.moma.Utils.DAOException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,7 +15,7 @@ import java.net.UnknownHostException;
 
 public class HTTPConnectionManager {
 
-    public String getRequestString(String url) throws DAOException{
+    public String getRequestString(String url) throws DAOException {
         String result = null;
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();

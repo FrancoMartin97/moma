@@ -1,7 +1,9 @@
-package com.example.franco.moma;
+package com.example.franco.moma.Model;
 
 import android.content.Context;
-import android.net.Uri;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +11,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.example.franco.moma.Controller.ControllerPinturas;
+import com.example.franco.moma.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -22,6 +31,7 @@ public class AdapterRecycle extends RecyclerView.Adapter {
     private Context contexto;
     private List<Pintura> pinturas;
     private Notificador notificador;
+    ControllerPinturas controllerPinturas = new ControllerPinturas();
 
     public AdapterRecycle(Context context, List<Pintura> pinturas) {
         this.contexto = context;
@@ -48,9 +58,10 @@ public class AdapterRecycle extends RecyclerView.Adapter {
             nombre = (TextView) itemView.findViewById(R.id.nombrePinturaCard);
         }
 
+
         public void bindProducto (Pintura pintura){
             nombre.setText(pintura.getName());
-            Picasso.with(contexto).load(Uri.parse(pintura.getImage())).into(foto);
+            controllerPinturas.obtenerFotosPinturas(pintura,foto);
         }
     }
 
@@ -85,4 +96,5 @@ public class AdapterRecycle extends RecyclerView.Adapter {
     public interface Notificador{
         public void notificarClick(Pintura pinturaClickeada);
     }
+
 }

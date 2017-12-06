@@ -1,27 +1,39 @@
-package com.example.franco.moma;
+package com.example.franco.moma.View;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.franco.moma.Controller.ControllerPinturas;
+import com.example.franco.moma.Model.Artista;
+import com.example.franco.moma.Model.Pintura;
+import com.example.franco.moma.R;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DetallePinturaActivity extends AppCompatActivity {
-
+    ControllerPinturas controllerPinturas = new ControllerPinturas();
     private DatabaseReference mDatabase;
     Artista artistaSeleccionado;
+    ImageView foto;
     private List<Artista> personaList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +57,9 @@ public class DetallePinturaActivity extends AppCompatActivity {
 
                 }
                 encontrarArtista(pintura);
-                ImageView imageView = (ImageView) findViewById(R.id.fotoDetalle);
+                foto = (ImageView) findViewById(R.id.fotoDetalle);
                 TextView textView = (TextView) findViewById(R.id.textoDetalle);
+                controllerPinturas.obtenerFotosPinturas(pintura,foto);
                 textView.setText("Artista: " + artistaSeleccionado.getName() + " Influenciado por:" + artistaSeleccionado.getInfluenced_by() +" Nacionalidad: " + artistaSeleccionado.getNationality());
 
             }
@@ -56,11 +69,8 @@ public class DetallePinturaActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
     }
+
 
     public void readDatabase(){
 

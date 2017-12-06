@@ -1,4 +1,4 @@
-package com.example.franco.moma;
+package com.example.franco.moma.View;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,8 +6,12 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
+import com.example.franco.moma.Controller.ControllerPinturas;
+import com.example.franco.moma.Model.AdapterRecycle;
+import com.example.franco.moma.Model.Pintura;
+import com.example.franco.moma.R;
+import com.example.franco.moma.Utils.ResultListener;
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -69,4 +73,6 @@ public class MainActivity extends AppCompatActivity implements AdapterRecycle.No
         LoginManager.getInstance().logOut();
         startActivity(new Intent(this,Logeo.class));
     }
+
+
 }

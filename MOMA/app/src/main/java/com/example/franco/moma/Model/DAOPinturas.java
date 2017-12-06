@@ -1,7 +1,9 @@
-package com.example.franco.moma;
+package com.example.franco.moma.Model;
 
 import android.os.AsyncTask;
 
+import com.example.franco.moma.Utils.HTTPConnectionManager;
+import com.example.franco.moma.Utils.ResultListener;
 import com.google.gson.Gson;
 
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.example.franco.moma;
+package com.example.franco.moma.Model;
 
-import com.google.gson.annotations.SerializedName;
+import com.example.franco.moma.Model.Pintura;
 
 import java.util.List;
 
